@@ -9,5 +9,4 @@ package com.github.jojoldu.mapper;
 public interface EnumMapperType {
     String getCode();
     String getTitle();
-
 }

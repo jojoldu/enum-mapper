@@ -27,8 +27,7 @@ public class EnumMapper {
     }
 
     private List<EnumMapperValue> toEnumValues(Class<? extends EnumMapperType> e) {
-        return Arrays
-                .stream(e.getEnumConstants())
+        return Arrays.stream(e.getEnumConstants())
                 .map(EnumMapperValue::new)
                 .collect(Collectors.toList());
     }
@@ -38,8 +37,7 @@ public class EnumMapper {
     }
 
     public Map<String, List<EnumMapperValue>> get(List<String> keys) {
-
-        if(keys.size() == 0){
+        if(keys == null || keys.size() == 0){
             return new LinkedHashMap<>();
         }
 

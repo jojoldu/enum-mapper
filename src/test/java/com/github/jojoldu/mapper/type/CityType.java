@@ -21,11 +21,11 @@ public enum CityType implements EnumMapperType {
 
     @Override
     public String getCode() {
-        return null;
+        return name();
     }
 
     @Override
     public String getTitle() {
-        return null;
+        return title;
     }
 }
