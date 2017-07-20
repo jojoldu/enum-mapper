@@ -1,8 +1,6 @@
 package com.github.jojoldu.mapper;
 
 
-import org.apache.commons.lang3.StringUtils;
-
 import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -16,11 +14,11 @@ import java.util.stream.Collectors;
  * Github : http://github.com/jojoldu
  */
 
-public class EnumMapper {
+public class EnumMapperFactory {
 
     private Map<String, List<EnumMapperValue>> factory = new LinkedHashMap<>();
 
-    public EnumMapper() {}
+    public EnumMapperFactory() {}
 
     public void put(String key, Class<? extends EnumMapperType> e) {
         factory.put(key, toEnumValues(e));

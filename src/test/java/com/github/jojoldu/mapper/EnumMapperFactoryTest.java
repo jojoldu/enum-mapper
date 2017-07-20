@@ -17,24 +17,24 @@ import static org.assertj.core.api.Assertions.assertThat;
  * Github : https://github.com/jojoldu
  */
 
-public class EnumMapperTest {
+public class EnumMapperFactoryTest {
 
 
-    private EnumMapper enumMapper;
+    private EnumMapperFactory enumMapperFactory;
 
     @Before
     public void setup () {
-        enumMapper = new EnumMapper();
+        enumMapperFactory = new EnumMapperFactory();
     }
 
     @Test
     public void JobType_show() throws Exception {
         //given
         final String KEY_JOB = "job";
-        enumMapper.put(KEY_JOB, JobType.class);
+        enumMapperFactory.put(KEY_JOB, JobType.class);
 
         //when
-        List<EnumMapperValue> enumValues = enumMapper.get(KEY_JOB);
+        List<EnumMapperValue> enumValues = enumMapperFactory.get(KEY_JOB);
 
         //then
         assertThat(enumValues.size()).isEqualTo(4);
@@ -48,12 +48,12 @@ public class EnumMapperTest {
         final String KEY_JOB = "job";
         final String KEY_CITY = "city";
 
-        enumMapper.put(KEY_JOB, JobType.class);
-        enumMapper.put(KEY_CITY, CityType.class);
+        enumMapperFactory.put(KEY_JOB, JobType.class);
+        enumMapperFactory.put(KEY_CITY, CityType.class);
 
         //when
-        List<EnumMapperValue> jobTypes = enumMapper.get(KEY_JOB);
-        List<EnumMapperValue> cityTypes = enumMapper.get(KEY_CITY);
+        List<EnumMapperValue> jobTypes = enumMapperFactory.get(KEY_JOB);
+        List<EnumMapperValue> cityTypes = enumMapperFactory.get(KEY_CITY);
 
         //then
         System.out.println("======= Job Type =======");
@@ -72,11 +72,11 @@ public class EnumMapperTest {
         final String KEY_CITY = "city";
         final List<String> KEYS = Arrays.asList(KEY_JOB, KEY_CITY);
 
-        enumMapper.put(KEY_JOB, JobType.class);
-        enumMapper.put(KEY_CITY, CityType.class);
+        enumMapperFactory.put(KEY_JOB, JobType.class);
+        enumMapperFactory.put(KEY_CITY, CityType.class);
 
         //when
-        Map<String, List<EnumMapperValue>> types = enumMapper.get(KEYS);
+        Map<String, List<EnumMapperValue>> types = enumMapperFactory.get(KEYS);
 
         //then
         types.get(KEY_JOB).forEach(e -> System.out.println(e.toString()));
@@ -89,11 +89,11 @@ public class EnumMapperTest {
         final String KEY_JOB = "job";
         final String KEY_CITY = "city";
 
-        enumMapper.put(KEY_JOB, JobType.class);
-        enumMapper.put(KEY_CITY, CityType.class);
+        enumMapperFactory.put(KEY_JOB, JobType.class);
+        enumMapperFactory.put(KEY_CITY, CityType.class);
 
         //when
-        Map<String, List<EnumMapperValue>> types = enumMapper.getAll();
+        Map<String, List<EnumMapperValue>> types = enumMapperFactory.getAll();
 
         //then
         types.get(KEY_JOB).forEach(e -> System.out.println(e.toString()));
